@@ -1,8 +1,7 @@
 #!/usr/bin/env ruby
-# Starts the Svarog server in development env !!!
-ENV['RACK_ENV'] = 'development'
+ENV['RACK_ENV'] = ENV['RACK_ENV'] || 'development'
 
-#$: << File.join(File.expand_path(File.dirname(__FILE__)), '../lib')
-#require 'svarog'
+$: << File.join(File.expand_path(File.dirname(__FILE__)), '../lib')
+require 'svarog'
 
 Rack::Handler::Thin.run Svarog, :Port => 9292
