@@ -1,0 +1,18 @@
+# Copy this file to ~/.sms and rename to config.yml
+
+# sms-server settings
+## Contact settings
+contact:
+  email: some-email@suse.de
+
+## IRC settings
+irc:
+  nick:     'svarog'
+  server:   'irc.host.de'
+  channels: ['#chanel']
+
+server:
+  url:  'http://localhost:8888/enqueue'
+  username: 'user'
+  password: 'password'
+
