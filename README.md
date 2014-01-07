@@ -1,4 +1,4 @@
 svarog
 ======
 
-This gem provides a simple way to send the notification mssages via IRC or Mail
+This gem provides a simple way to send the notification messages via IRC or Mail
