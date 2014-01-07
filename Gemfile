@@ -2,8 +2,10 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 gem 'sinatra'
+gem 'thin'
 gem 'redis'
 gem 'redis-namespace'
+
 gem 'haml'
 gem 'json'
 
