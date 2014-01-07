@@ -29,7 +29,7 @@ class Svarog < Sinatra::Base
     def authorized?
       @auth ||=  Rack::Auth::Basic::Request.new(request.env)
       if @auth.provided? && @auth.basic? && @auth.credentials
-        @auth.credentials == [CONFIG['server']['username'], CONFIG['server']['password']]
+        @auth.credentials == [CONFIG[:basic_auth][:username], CONFIG[:basic_auth][:password]]
       else
         logger.error "Not authorized request from '#{request.env['REMOTE_ADDR']}'"
         false
@@ -73,8 +73,8 @@ __END__
     %title Svarog server
   %body
     %h1 Svarog - a simple way to send the notification mssages through IRC or Mail
+    %p Email contact: #{CONFIG[:contact][:email]}
+    %p IRC channel: #{CONFIG[:irc][:channels].join(',')}
 
-    %p Email contact address: #{CONFIG['contact']['email']}
-    %p IRC channel: #{CONFIG['irc']['channels'].join(',')}
 
 

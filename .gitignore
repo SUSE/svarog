@@ -2,6 +2,7 @@
 *.rbc
 .bundle
 .config
-tmp
 log/*
 !log/.gitkeep
+tmp/*
+!tmp/.gitkeep
