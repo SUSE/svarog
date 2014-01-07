@@ -50,7 +50,7 @@ class Svarog < Sinatra::Base
     haml :index
   end
 
-  post '/enqueue' do
+  post '/' do
     protected!
 
     message = Notification::Message.new(params)
