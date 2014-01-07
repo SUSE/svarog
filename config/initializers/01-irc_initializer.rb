@@ -14,7 +14,7 @@ if ENV['RACK_ENV'] != 'test'
       timer 5, method: :notify
       def notify
         Notification::Message.all.each do |message|
-          CONFIG['irc']['channels'].each do |channel|
+          CONFIG[:irc][:channels].each do |channel|
             if message.type == "error"
               notification = Format(:red, "#{message.sender}: #{message.text}")
             else
