@@ -1,12 +1,5 @@
 puts "*** 00-application_initializer.rb"
 
-require 'redis'
-require 'redis-namespace'
-
-require 'yaml'
-require 'haml'
-require 'json'
-
 # Define global constans
 APP_ROOT = File.expand_path(File.join(File.dirname(__FILE__), '../../'))
 LIB_ROOT = File.expand_path(File.join(APP_ROOT, 'lib'))
@@ -18,13 +11,6 @@ REDIS = Redis.new(:host => "localhost", :port => 6379, :db => REDIS_DATABASES[EN
 # Load libraries
 Dir[File.join(LIB_ROOT,"/**/*.rb")].each {|file| require file }
 
-# Read options from yml file(s)
-if ENV['RACK_ENV'] == 'test'
-	CONFIG_FILE = File.expand_path('config/example-config.yml')
-else
-	CONFIG_FILE = File.expand_path('config/application.yml')
-end
-
-CONFIG = YAML.load_file(File.expand_path(CONFIG_FILE))
-
-
+# Only load configurations if there's a config directory in the first place..
+CONFIG_DIR = File.join(APP_ROOT, "config") unless defined?(CONFIG_DIR)
+CONFIG = YAML.load(File.read(File.join(CONFIG_DIR, "application.yml"))).deep_symbolize_keys! if File.directory?(CONFIG_DIR)

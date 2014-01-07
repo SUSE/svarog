@@ -1,18 +1,14 @@
 # SMS server options
-server:
-  protocol: 'http'
-  host:     '0.0.0.0'
-  port:     '8888'
-  path:     '/enqueue'
-  username: 'scc'
-  password: 'admin'
+basic_auth:
+  username: 'user'
+  password: 'password'
 
 # IRC options
 irc:
   nick:     "svarog"
-  server:   "irc.suse.de"
-  channels: ["#svarog"]
+  server:   "irc server hostname"
+  channels: ["#irc_channel"]
 
-# Other options
+# Mail options
 contact:
-  email: happy-customer@suse.de
+  email: "email@domain.com"
