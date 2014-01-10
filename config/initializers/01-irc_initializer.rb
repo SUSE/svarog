@@ -20,6 +20,8 @@ if ENV['RACK_ENV'] != 'test'
             case message.type
             when 'success'
               notification = "\x0300,09 #{message.type.upcase} \x03 #{message.sender}: #{message.text}"
+            when 'resolved'
+              notification = "\x0300,09 #{message.type.upcase} \x03 #{message.sender}: #{message.text}"
             when 'info'
               notification = "\x0300,12 #{message.type.upcase} \x03 #{message.sender}: #{message.text}"
             when 'alert'
