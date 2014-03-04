@@ -8,7 +8,7 @@ irc:
   server:   <server>
   port:     <port>
   use_ssl:  false
-  channels: ["#chanel"]
+  channels: ["#channel"]
   nick:     "svarog"
 
 # Mail options
