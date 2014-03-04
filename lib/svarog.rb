@@ -53,6 +53,8 @@ class Svarog < Sinatra::Base
   post '/' do
     protected!
 
+    logger.info "Incomming POST request with params: '#{params.inspect}'"
+
     message = Notification::Message.new(params)
     message.save
 
