@@ -41,9 +41,11 @@ if ENV['RACK_ENV'] != 'test'
 
     bot = Cinch::Bot.new do
       configure do |c|
-        c.nick = CONFIG[:irc][:nick]
         c.server = CONFIG[:irc][:server]
+        c.port = CONFIG[:irc][:port]
+        c.ssl.use = CONFIG[:irc][:use_ssl]
         c.channels = CONFIG[:irc][:channels]
+        c.nick = CONFIG[:irc][:nick]
         c.verbose = false
         c.plugins.plugins = [SvarogPlugin]
         c.log = self.loggers.first

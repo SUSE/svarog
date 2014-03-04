@@ -5,9 +5,11 @@ basic_auth:
 
 # IRC options
 irc:
+  server:   <server>
+  port:     <port>
+  use_ssl:  false
+  channels: ["#chanel"]
   nick:     "svarog"
-  server:   "irc server hostname"
-  channels: ["#irc_channel"]
 
 # Mail options
 contact:
