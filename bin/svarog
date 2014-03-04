@@ -1,7 +1,0 @@
-#!/usr/bin/env ruby
-ENV['RACK_ENV'] = ENV['RACK_ENV'] || 'development'
-
-$: << File.join(File.expand_path(File.dirname(__FILE__)), '../lib')
-require 'svarog'
-
-Rack::Handler::Thin.run Svarog, :Port => 9292
