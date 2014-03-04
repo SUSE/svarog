@@ -16,13 +16,13 @@ describe 'Svarog' do
 
   it "grants access for authorized clients" do
     authorize 'user', 'password'
-    post '/enqueue'
+    post '/'
     last_response.status.must_equal 200
   end
 
   it "restricts access for not authorized clients" do
     authorize 'wrong', 'wrong'
-    post '/enqueue'
+    post '/'
     last_response.status.must_equal 401
   end
 
@@ -30,7 +30,7 @@ describe 'Svarog' do
     authorize 'user', 'password'
     Notification::Message.all.count.must_equal 0
 
-    post '/enqueue', :type => "test", :text => "Test message"
+    post '/', :type => "test", :text => "Test message"
 
     Notification::Message.all.count.must_equal 1
     last_response.status.must_equal 200
