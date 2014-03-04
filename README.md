@@ -8,7 +8,7 @@ git clone https://github.com/vlewin/svarog.git
 
 sudo bundle install  
 
-thin start -p <PORT>  
+thin start -p <PORT> -d 
 ``` 
 
 
