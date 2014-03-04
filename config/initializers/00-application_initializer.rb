@@ -11,6 +11,12 @@ REDIS = Redis.new(:host => "localhost", :port => 6379, :db => REDIS_DATABASES[EN
 # Load libraries
 Dir[File.join(LIB_ROOT,"/**/*.rb")].each {|file| require file }
 
-# Only load configurations if there's a config directory in the first place..
 CONFIG_DIR = File.join(APP_ROOT, "config") unless defined?(CONFIG_DIR)
-CONFIG = YAML.load(File.read(File.join(CONFIG_DIR, "application.yml"))).deep_symbolize_keys! if File.directory?(CONFIG_DIR)
+
+if File.exist? (File.join(CONFIG_DIR, '.application.yml'))
+  CONFIG_FILE =  File.join(CONFIG_DIR, '.application.yml')
+else
+  CONFIG_FILE =  File.join(CONFIG_DIR, 'application.yml')
+end
+
+CONFIG = YAML.load(File.read(CONFIG_FILE)).deep_symbolize_keys! if File.directory?(CONFIG_DIR)
