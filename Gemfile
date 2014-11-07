@@ -11,10 +11,6 @@ gem 'json'
 
 gem 'cinch'
 
-group :development, :test do
-  gem 'debugger'
-end
-
 group :test do
   gem 'minitest'
   gem 'rack-test'
