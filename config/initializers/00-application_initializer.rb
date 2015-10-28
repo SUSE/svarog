@@ -1,5 +1,5 @@
 puts "*** 00-application_initializer.rb"
-
+require 'yaml'
 # Define global constans
 APP_ROOT = File.expand_path(File.join(File.dirname(__FILE__), '../../'))
 LIB_ROOT = File.expand_path(File.join(APP_ROOT, 'lib'))
